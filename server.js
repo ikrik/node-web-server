@@ -2,6 +2,10 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// process.env einai ola ta enviroment variables tou systimatos
+// sto heroku to enviroment variables PORT exei mia timi, opote ston server
+// tis heroku tha parei tin porta pou deixnei to enviroment variables
+const port = process.env.PORT || 3000;
 var app = express();
 
 
@@ -51,6 +55,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
